@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation: HACKLOCK26 | ISTAR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-orange: #ff9d00;
+            --dark-bg: #050505;
+            --glass-bg: rgba(20, 20, 20, 0.85);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(255, 157, 0, 0.08), transparent 25%);
+        }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .text-neon { color: var(--neon-blue); text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+        .text-orange { color: var(--neon-orange); text-shadow: 0 0 10px rgba(255, 157, 0, 0.5); }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--neon-orange), #ff5e00);
+            color: #000;
+            padding: 12px 35px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            transition: 0.3s;
+        }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 157, 0, 0.6); }
+
+        /* Secondary button for less-prominent actions */
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--neon-blue);
+            padding: 10px 28px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.3s;
+            margin-left: 10px;
+            border-radius: 6px;
+        }
+        .btn-secondary:hover {
+            background: rgba(0,243,255,0.06);
+            box-shadow: 0 0 12px rgba(0,243,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        /* --- 1. INSTITUTIONAL HEADER (White) --- */
+        /* Matches image_678002.png */
+        .inst-header {
+            background: #fff;
+            padding: 15px 0;
+            border-bottom: 4px solid var(--neon-blue);
+        }
+        .header-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            text-align: center;
+        }
+        .header-center h1 { color: #1a3a5f; font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
+        .header-center h2 { color: #333; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+        .rank-badge { color: #008751; font-weight: bold; font-size: 0.9rem; }
+        .logo-img { height: 70px; width: auto; }
+
+        /* --- 2. HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('D:\RAYHAN\evnthk.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain; /* keep logo centered and not stretched */
+            opacity: 0.12; /* subtle, change to 0.05-0.25 as needed */
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero > .container { position: relative; z-index: 1; }
+        .hero-logo { display: none; }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            margin: 10px 0;
+            letter-spacing: 2px;
+            background: -webkit-linear-gradient(#fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tagline { font-size: 1.5rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 30px; }
+
+        /* Countdown styles */
+        .countdown { display: flex; gap: 12px; justify-content: center; margin: 12px 0 18px; z-index: 1; position: relative; }
+        .countdown .count-item { background: rgba(255,255,255,0.03); padding: 10px 14px; border-radius: 8px; min-width: 70px; text-align: center; }
+        .countdown .count-number { font-size: 1.25rem; font-weight: 700; color: var(--neon-orange); display: block; }
+        .countdown .count-label { font-size: 0.75rem; color: #ccc; display: block; margin-top: 4px; letter-spacing: 1px; }
+
+        .countdown-bridge-container { text-align: center; margin: 18px 0; }
+        .countdown-bridge { color: var(--neon-blue); font-weight: 700; font-size: 1.15rem; background: rgba(255,255,255,0.03); display: inline-block; padding: 8px 14px; border-radius: 8px; }
+
+        @media (max-width: 480px) {
+            .countdown { gap: 8px; }
+            .countdown .count-item { padding: 8px 10px; min-width: 56px; }
+            .countdown .count-number { font-size: 1rem; }
+            .countdown-bridge { font-size: 1rem; }
+        }
+
+        /* --- 3. PATRONS & COMMITTEE (From PDF) --- */
+        .patrons-section {
+            background: rgba(255,255,255,0.03);
+            padding: 40px 0;
+            margin-bottom: 40px;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .patrons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        /* Desktop: force patrons into 2 columns (2 rows for 4 items) and center content */
+        @media (min-width: 769px) {
+            .patrons-section .patrons-grid { grid-template-columns: repeat(2, 1fr); }
+            .patrons-section .patron-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; min-height: 120px; }
+        }
+
+        .patron-card h4 { color: var(--neon-blue); margin-bottom: 5px; font-size: 1.1rem; }
+        .patron-card p { color: #aaa; font-size: 0.9rem; }
+
+        /* Desktop-only utilities */
+        @media (min-width: 769px) {
+            /* Center specific patron designations on desktop */
+            .patron-center-desktop { text-align: center; }
+        }
+
+        /* Footer nav & Inline info panel */
+        .footer-nav { background: rgba(255,255,255,0.02); padding: 12px 0; margin-bottom: 20px; }
+        .footer-nav .nav-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .footer-nav a { color: #ccc; text-decoration: none; padding: 6px 10px; }
+
+        .info-panel { background: rgba(255,255,255,0.03); padding: 28px 0; margin-bottom: 22px; border-top: 1px solid rgba(255,255,255,0.04); }
+        .info-panel #info-title { color: var(--neon-blue); margin-bottom: 8px; font-size: 1.25rem; }
+        .info-panel #info-content { color: #ddd; font-size: 0.95rem; }
+        .info-close { background: transparent; border: none; color: #fff; float: right; font-size: 1.1rem; cursor: pointer; }
+
+        /* --- 4. EVENT MODULES (Logic from PDF) --- */
+        .modules-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .module-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        .module-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--neon-blue);
+        }
+        .module-card.gaming::before { background: var(--neon-orange); }
+        
+        .module-title { 
+            font-family: 'Orbitron', sans-serif; 
+            font-size: 1.5rem; 
+            margin-bottom: 20px; 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+        }
+        .event-list { list-style: none; text-align: left; margin-left: 10px; }
+        .event-list li { margin-bottom: 10px; font-size: 1.2rem; display: flex; align-items: center; }
+        .event-list li::before { content: '>'; color: var(--neon-blue); margin-right: 10px; font-weight: bold; }
+
+        /* --- 5. REGISTRATION DETAILS --- */
+        .reg-bar {
+            background: linear-gradient(45deg, #111, #222);
+            border: 1px solid var(--neon-orange);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 0 30px rgba(255, 157, 0, 0.1);
+        }
+
+        /* Registration controls: center primary button and keep stacked on small screens */
+        .reg-controls { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
+        .reg-controls .btn-primary, .reg-controls .btn-secondary { display: inline-block; max-width: 300px; width: auto; }
+
+        /* Desktop: ensure buttons are inline and centered */
+        @media (min-width: 769px) {
+            .reg-controls { justify-content: center; }
+            .reg-controls .btn-primary, .reg-controls .btn-secondary { width: auto; display: inline-block; }
+        }
+
+        @media (max-width: 480px) {
+            .reg-controls { flex-direction: column; }
+            .reg-controls .btn-primary, .reg-controls .btn-secondary { width: 100%; max-width: 300px; display: block; }
+        }
+
+        /* --- 6. FOOTER --- */
+        footer {
+            background: #000;
+            padding: 40px 0;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .contact-item b { color: #fff; display: block; font-size: 1.1rem; }
+
+        /* ANIMATIONS */
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .header-grid { flex-direction: column; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+
+        /* SMALL PHONES: Make header compact — ISTAR left, title centered, CVMU right */
+        @media (max-width: 480px) {
+            /* Force a single-line header: logos on sides, title centered and truncated if too long */
+            .header-grid { flex-direction: row; align-items: center; gap: 8px; flex-wrap: nowrap; }
+
+            /* Explicitly override .logo-img height so chrome uses smaller logos on small screens */
+            .header-grid .logo-img { height: 36px; width: auto; max-width: 40%; object-fit: contain; }
+            .logo-left { order: 0; flex: 0 0 auto; }
+            .logo-right { order: 2; flex: 0 0 auto; }
+
+            /* Center title should flex and be allowed to shrink; truncate to keep one line */
+            .header-center { order: 1; flex: 1 1 auto; min-width: 0; text-align: center; padding: 0 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+            .header-center h1 { font-size: 0.95rem; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .header-center h2, .rank-badge { display: none; }
+
+            /* HERO: make H1 readable and fit on small screens */
+            .hero { padding: 36px 12px; }
+            .hero h1 {
+                font-size: clamp(1.6rem, 6vw, 2.6rem);
+                line-height: 1.05;
+                margin: 6px 0 8px;
+                letter-spacing: 1px;
+                word-break: break-word;
+                hyphens: auto;
+            }
+            .tagline { font-size: 1rem; letter-spacing: 2px; margin-bottom: 18px; }
+
+            /* Ensure module titles stay on a single line on small screens */
+            .module-title { font-size: 1.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        }        .hero::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: url('hk.png');
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0.12; /* or 1 for opaque */
+          z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="inst-header">
+        <div class="container header-grid">
+            <img src="D:\RAYHAN\evnt\ilogo.png" alt="ISTAR" class="logo-img logo-left">
+            
+            <div class="header-center">
+                <h1>INSTITUTE OF SCIENCE & TECHNOLOGY FOR ADVANCED STUDIES & RESEARCH</h1>
+                <h2>THE CHARUTAR VIDYA MANDAL UNIVERSITY</h2>
+                <div class="rank-badge">3<sup>rd</sup> Rank (5 Star) among All Colleges of Gujarat by KCG (GSIRF)</div>
+            </div>
+
+            <img src="D:\RAYHAN\evnt\cvmuLOGO1.jpg" alt="CVM" class="logo-img logo-right">
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <img src="hk.jpeg" alt="HACKLOCK26 Logo" class="hero-logo" >
+            
+            <h1>HACKLOCK'26</h1>
+            <p class="tagline text-neon">YOUR PRESENCE WILL ADD VALUE TO THIS CELEBRATION OF <span class="text-orange">TEACHNOLOGY,INNOVATION AND YOUNG TELENT</span></p>
+            
+            <div style="font-size: 1.2rem; margin-bottom: 12px;">
+                📅 <b>28th JANUARY 2026</b> &nbsp;|&nbsp; 🕗 <b>8:15 AM Onwards</b>
+            </div>
+
+            <div id="countdown" class="countdown" aria-live="polite">
+                <div class="count-item"><span class="count-number" id="cd-days">0</span><span class="count-label">Days</span></div>
+                <div class="count-item"><span class="count-number" id="cd-hours">00</span><span class="count-label">Hours</span></div>
+                <div class="count-item"><span class="count-number" id="cd-mins">00</span><span class="count-label">Mins</span></div>
+                <div class="count-item"><span class="count-number" id="cd-secs">00</span><span class="count-label">Secs</span></div>
+            </div> 
+
+            
+        </div>
+    </section>
+
+    <div class="countdown-bridge-container">
+        <div id="countdown-bridge" class="countdown-bridge" aria-hidden="false">Event starts in: <span id="cd-bridge">0d 0h 0m 0s</span></div>
+    </div>
+
+
+    <div class="container">
+        <h2 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 10px;">CHOOSE YOUR EVENT</h2>
+        <p style="text-align: center; color: #888;">Participants can select events from the categories below</p>
+        
+        <div class="modules-container">
+            
+            <div class="module-card">
+                <h3 class="module-title text-neon">TECHNICAL / CREATIVE</h3>
+                <p style="margin-bottom: 15px; color:#ccc;">Select <b>Any One</b>:</p>
+                <ul class="event-list">
+                    <li>Quiz Competition</li>
+                    <li>Techtoon (Cartoons)</li>
+                    <p style="margin-bottom: 15px; color:#ccc;">Select <b>Any One</b>:</p>
+                    <li>Treasure Hunt</li>
+                    <li>Still Photography</li>
+                </ul>
+            </div>
+
+            <div class="module-card gaming">
+                <h3 class="module-title text-orange">GAMING ZONE</h3>
+                <p style="margin-bottom: 15px; color:#ccc;">Select <b>Any One</b>:</p>
+                <ul class="event-list">
+                    <li>BGMI (Battlegrounds)</li>
+                    <li>FREE FIRE</li>
+                    <li>Fun Games</li>
+                </ul>
+            </div>
+
+        </div>
+
+<div class="container" id="register">
+        <div class="reg-bar">
+            <h2 style="font-family: 'Orbitron'; font-size: 2rem; margin-bottom: 10px;">JOIN THE EVENT</h2>
+            <div style="font-size: 3rem; font-weight: bold; color: var(--neon-orange); margin: 10px 0;">₹ 200/-</div>
+            <p style="color: #fff; font-size: 1.1rem;">Registration Closes: <span class="text-neon">26th Jan, 2026</span></p>
+            
+            <br>
+            <div class="reg-controls">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeu0ye1bzwBLuifF0OX8Ki-M4UdEjQMsDpmvhSuKaOil_-LIA/viewform?usp=header" class="btn btn-primary">register Now</a>
+                <a href="D:\RAYHAN\evnt\HackLockDetails.jpg" class="btn-secondary" id="more-details-link" target="_blank" rel="noopener noreferrer">More Details</a>
+            </div>
+
+
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">
+                Venue: ISTAR Main Building, Opp. RPTP School,<br>Mota Bazar, Vallabh Vidyanagar, 388 120
+            </p>
+        </div>
+    </div>
+        <section class="patrons-section">
+            <div class="container">
+                <h3 style="text-align: center; color: #666; margin-bottom: 30px; letter-spacing: 2px;"><u>EVENT PATRONS</u></h3>
+                <div class="patrons-grid">
+                    <div class="patron-card">
+                        <h4>Er. Shri Bhikhubhai B. Patel</h4>
+                        <p>President, The Charutar Vidya Mandal</p>
+                    </div>
+                    <div class="patron-card">
+                        <h4>Dr. Indrajeet Patel</h4>
+                        <p>Provost, The CVM University</p>
+                    </div>
+                    <div class="patron-card">
+                        <h4>Dr. Mahendrasinh Raj</h4>
+                        <p>Principal, ISTAR</p>
+                    </div>
+                    <div class="patron-card">
+                        <h4>Mr. Parth Parikh</h4>
+                        <p class="patron-center-desktop">HOD, Dept. of Cyber Security</p>
+                    </div>
+                </div>
+
+                <h3 style="text-align: center; color: #666; margin-top: 30px; margin-bottom: 20px; letter-spacing: 2px;"><u>ORGANIZING COMMITTEE</u></h3>
+                <div class="patrons-grid committee-grid">
+                    <div class="patron-card">
+                        <h4>Dr. Sarvesh Trivedi</h4>
+                        <p>IT Head</p>
+                    </div>
+                    <div class="patron-card">
+                        <h4>Dr. Jigar Patel</h4>
+                        <p>Deputy Director, SICART</p>
+                    </div>
+                    <div class="patron-card">
+                        <h4>Ms. Mahima Ahir</h4>
+                        <p>Asst. Prof</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer-nav">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#" class="info-link" data-target="about">About Us</a>
+                <a href="#" class="info-link" data-target="vision">Vision</a>
+                <a href="#" class="info-link" data-target="mission">Mission</a>
+                <a href="#" class="info-link" data-target="objective">Objective</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="info-panel" class="info-panel" aria-hidden="true" style="display:none;">
+        <div class="container">
+            <button id="info-close" class="info-close" aria-label="Close">✕</button>
+            <h3 id="info-title"></h3>
+            <div id="info-content"></div>
+        </div>
+    </section>
+
+    <!-- Templates for content (editable) -->
+    <template id="about-template">
+        <h4>About ISTAR</h4>
+        <p>ISTAR (Institute of Science &amp; Technology for Advanced Studies &amp; Research) hosts HACKLOCK26 — a technical event for students to showcase skills.</p>
+    </template>
+    <template id="vision-template">
+        <h4>Vision</h4>
+        <p>To foster innovation, practical learning and cyber awareness among students.</p>
+    </template>
+    <template id="mission-template">
+        <h4>Mission</h4>
+        <p>Provide platforms for students to learn, compete and collaborate on real-world problems.</p>
+    </template>
+    <template id="objective-template">
+        <h4>Objective</h4>
+        <p>Encourage problem solving, ethical hacking awareness and community building.</p>
+    </template>
+
+    <footer>
+        <div class="container">
+            <h3 style="color: #fff; margin-bottom: 20px; font-family: 'Orbitron';"><U>STUDENT COMMITTEE CONTACTS</U></h3>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <b>Sneha Patel</b>
+                    <span class="text-neon">+91 99255 85819</span>
+                </div>
+                <div class="contact-item">
+                    <b>Aanvi Chauhan</b>
+                    <span class="text-neon">+91 97129 41872</span>
+                </div>
+                <div class="contact-item">
+                    <b>Mitesh Patel</b>
+                    <span class="text-neon">+91 99799 40332</span>
+                </div>
+            </div>
+            <div style="margin-top: 20px; border-top: 1px solid #222; padding-top: 12px; color: #888; font-size: 0.9rem; text-align:center;">
+                <div>© 2026. All rights reserved.</div>
+                <div>Developed by</DIV> <div><strong>Rayhan Malek & Parth Patel & Rudra Gosai</strong></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function(){
+        function pad(n){ return n < 10 ? '0'+n : n; }
+        // Target: 28 Jan 2026, 08:15 local time
+        var target = new Date(2026, 0, 28, 8, 15, 0);
+        function updateCountdown(){
+            var now = new Date();
+            var diff = target - now;
+            if(diff <= 0){
+                // Event started
+                var bd = document.getElementById('cd-days');
+                var bh = document.getElementById('cd-hours');
+                var bm = document.getElementById('cd-mins');
+                var bs = document.getElementById('cd-secs');
+                if(bd) bd.textContent = '0';
+                if(bh) bh.textContent = '00';
+                if(bm) bm.textContent = '00';
+                if(bs) bs.textContent = '00';
+                var bridge = document.getElementById('cd-bridge');
+                if(bridge) bridge.textContent = 'Event started';
+                clearInterval(interval);
+                return;
+            }
+            var s = Math.floor(diff/1000);
+            var days = Math.floor(s/86400); s %= 86400;
+            var hours = Math.floor(s/3600); s %= 3600;
+            var mins = Math.floor(s/60);
+            var secs = s % 60;
+
+            var bd = document.getElementById('cd-days');
+            var bh = document.getElementById('cd-hours');
+            var bm = document.getElementById('cd-mins');
+            var bs = document.getElementById('cd-secs');
+            var bridge = document.getElementById('cd-bridge');
+            if(bd) bd.textContent = days;
+            if(bh) bh.textContent = pad(hours);
+            if(bm) bm.textContent = pad(mins);
+            if(bs) bs.textContent = pad(secs);
+            if(bridge) bridge.textContent = days + 'd ' + hours + 'h ' + mins + 'm ' + secs + 's';
+        }
+        updateCountdown();
+        var interval = setInterval(updateCountdown, 1000);
+
+        // Inline info-panel handlers
+        var infoPanel = document.getElementById('info-panel');
+        var infoTitle = document.getElementById('info-title');
+        var infoContent = document.getElementById('info-content');
+        var infoClose = document.getElementById('info-close');
+
+        function showInfo(title, html){
+            if(!infoPanel) return;
+            infoTitle.textContent = title || '';
+            infoContent.innerHTML = html || '';
+            infoPanel.style.display = 'block';
+            infoPanel.setAttribute('aria-hidden','false');
+            infoPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        function hideInfo(){
+            if(!infoPanel) return;
+            infoPanel.style.display = 'none';
+            infoPanel.setAttribute('aria-hidden','true');
+            infoTitle.textContent = '';
+            infoContent.innerHTML = '';
+        }
+
+        document.querySelectorAll('.info-link').forEach(function(el){
+            el.addEventListener('click', function(e){
+                e.preventDefault();
+                var target = el.dataset.target;
+                var tpl = document.getElementById(target + '-template');
+                if(tpl){
+                    var titleEl = tpl.content.querySelector('h4');
+                    var title = titleEl ? titleEl.textContent : '';
+                    showInfo(title, tpl.innerHTML);
+                }
+            });
+        });
+        if(infoClose) infoClose.addEventListener('click', hideInfo);
+        document.addEventListener('keyup', function(e){ if(e.key === 'Escape'){ hideInfo(); } });
+
+    })();
+    </script>
+
+</body>
+</html>
